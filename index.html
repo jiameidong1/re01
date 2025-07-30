@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三角洲行动改枪方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3b82f6',
+                        secondary: '#10b981',
+                        accent: '#f59e0b',
+                        dark: '#1e293b',
+                        light: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-transform-opacity {
+                transition-property: transform, opacity;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-gray-800 min-h-screen">
+<!-- 导航栏 -->
+<nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+    <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <i class="fa fa-crosshairs text-primary text-2xl"></i>
+            <h1 class="text-xl font-bold text-dark">三角洲行动改枪方案</h1>
+        </div>
+        <div class="hidden md:flex space-x-6">
+            <a href="#rifle" class="font-medium hover:text-primary transition-colors">步枪</a>
+            <a href="#smg" class="font-medium hover:text-primary transition-colors">冲锋枪</a>
+            <a href="#shotgun" class="font-medium hover:text-primary transition-colors">霰弹枪</a>
+            <a href="#dmr" class="font-medium hover:text-primary transition-colors">精准射手步枪</a>
+            <a href="#sniper" class="font-medium hover:text-primary transition-colors">精准狙击步枪</a>
+        </div>
+        <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+            <i class="fa fa-bars text-xl"></i>
+        </button>
+    </div>
+    <!-- 移动端菜单 -->
+    <div class="md:hidden hidden bg-white border-t" id="mobile-menu">
+        <div class="container mx-auto px-4 py-2 space-y-2">
+            <a href="#rifle" class="block py-2 font-medium hover:text-primary transition-colors">步枪</a>
+            <a href="#smg" class="block py-2 font-medium hover:text-primary transition-colors">冲锋枪</a>
+            <a href="#shotgun" class="block py-2 font-medium hover:text-primary transition-colors">霰弹枪</a>
+            <a href="#dmr" class="block py-2 font-medium hover:text-primary transition-colors">精准射手步枪</a>
+            <a href="#sniper" class="block py-2 font-medium hover:text-primary transition-colors">精准狙击步枪</a>
+        </div>
+    </div>
+</nav>
+
+<!-- 主内容区 -->
+<main class="container mx-auto px-4 pt-24 pb-16">
+    <!-- 介绍卡片 -->
+    <div class="bg-gradient-to-r from-primary/90 to-secondary/90 rounded-xl shadow-lg p-6 mb-12 text-white transform hover:scale-[1.01] transition-all duration-300">
+        <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold mb-3 text-shadow">怡容电子竞技俱乐部独家赞助</h2>
+        <p class="text-lg opacity-90">浏览所需要使用的枪械，枪械都已精校改好，点击任意改枪码即可复制到剪贴板。</p>
+    </div>
+
+    <!-- 枪械分类展示 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- 步枪 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300" id="rifle">
+            <div class="bg-primary text-white p-4">
+                <h3 class="text-xl font-bold flex items-center">
+                    <i class="fa fa-bullseye mr-2"></i>步枪
+                </h3>
+            </div>
+            <div class="p-4 space-y-3">
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-primary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-red-500 mr-2"></span>红点
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GQ3SIK08PDKTD7H901RK">
+                            <p class="font-medium">M14射手步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GQ3SIK08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GU7L4408PDKTD7H901RK">
+                            <p class="font-medium">SCAR-H战斗步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GU7L4408PDKTD7H901RK</p>
+                        </div>
+                        <!-- 其他红点步枪 -->
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GKQH4O0EAU0O8A34FDCG">
+                            <p class="font-medium">SG552突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GKQH4O0EAU0O8A34FDCG</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GPTP8G033LBB5GR8PG1C">
+                            <p class="font-medium">ASh-12战斗步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GPTP8G033LBB5GR8PG1C</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GPU3TC033LBB5GR8PG1C">
+                            <p class="font-medium">AK-12突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GPU3TC033LBB5GR8PG1C</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GQ3RGO08PDKTD7H901RK">
+                            <p class="font-medium">AKM突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GQ3RGO08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GNGLHK06D8TJPJV7AEJ7">
+                            <p class="font-medium">K437突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GNGLHK06D8TJPJV7AEJ7</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GRT6NC08PDKTD7H901RK">
+                            <p class="font-medium">K416突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GRT6NC08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GU7LHC08PDKTD7H901RK">
+                            <p class="font-medium">腾龙突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GU7LHC08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GVILQ403RL8TV0QFKGSK">
+                            <p class="font-medium">KC17突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GVILQ403RL8TV0QFKGSK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-primary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-green-500 mr-2"></span>1.5倍
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-green-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G6DD5G06D8TJPJV7AEJ7">
+                            <p class="font-medium">SCAR-H战斗步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G6DD5G06D8TJPJV7AEJ7</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-green-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GVIK8C03RL8TV0QFKGSK">
+                            <p class="font-medium">KC17突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GVIK8C03RL8TV0QFKGSK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6H2F0H00355FN2BVMTG4A">
+                        <p class="font-medium">AUG突击步枪-烽火地带</p>
+                        <p class="text-sm text-gray-600 truncate">6H2F0H00355FN2BVMTG4A</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他倍率的步枪 -->
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-primary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-blue-500 mr-2"></span>三倍
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GG0QVK06D8TJPJV7AEJ7">
+                            <p class="font-medium">G3战斗步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GG0QVK06D8TJPJV7AEJ7</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GIIQAO0EAU0O8A34FDCG">
+                            <p class="font-medium">AUG突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GIIQAO0EAU0O8A34FDCG</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G35OH007MIJNMJ2RIBL2">
+                            <p class="font-medium">QBZ95-1突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G35OH007MIJNMJ2RIBL2</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6H23Q6S08PDKTD7H901RK">
+                            <p class="font-medium">M7战斗步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6H23Q6S08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GU7K8008PDKTD7H901RK">
+                            <p class="font-medium">K437突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GU7K8008PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GU7JOS08PDKTD7H901RK">
+                            <p class="font-medium">K416突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GU7JOS08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GU7LIG08PDKTD7H901RK">
+                            <p class="font-medium">腾龙突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GU7LIG08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他倍率分类 -->
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-primary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-purple-500 mr-2"></span>消音
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-purple-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6H1ATCO08PDKTD7H901RK">
+                            <p class="font-medium">M7战斗步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6H1ATCO08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-purple-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GQ3RPK08PDKTD7H901RK">
+                            <p class="font-medium">K437突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GQ3RPK08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-primary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>丐版
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-yellow-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GPOIMG08PDKTD7H901RK">
+                            <p class="font-medium">M4A1突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GPOIMG08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-yellow-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GPOIS408PDKTD7H901RK">
+                            <p class="font-medium">K437突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GPOIS408PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-primary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-indigo-500 mr-2"></span>半改
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-indigo-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GTDAU006D8TJPJV7AEJ7">
+                            <p class="font-medium">腾龙突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GTDAU006D8TJPJV7AEJ7</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-primary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-teal-500 mr-2"></span>火力
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-teal-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GVIU6O03RL8TV0QFKGSK">
+                            <p class="font-medium">KC17突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GVIU6O03RL8TV0QFKGSK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 冲锋枪 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300" id="smg">
+            <div class="bg-accent text-white p-4">
+                <h3 class="text-xl font-bold flex items-center">
+                    <i class="fa fa-bolt mr-2"></i>冲锋枪
+                </h3>
+            </div>
+            <div class="p-4 space-y-3">
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-accent mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-pink-500 mr-2"></span>腰射
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-pink-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G1R1P808PDKTD7H901RK">
+                            <p class="font-medium">MP7冲锋枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G1R1P808PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-pink-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GPOIVS08PDKTD7H901RK">
+                            <p class="font-medium">SMG-45冲锋枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GPOIVS08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-accent mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-red-500 mr-2"></span>红点
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GU7H0G08PDKTD7H901RK">
+                            <p class="font-medium">P90冲锋枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GU7H0G08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G1R37G08PDKTD7H901RK">
+                            <p class="font-medium">SR-3M紧凑突击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G1R37G08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 其他倍率的冲锋枪 -->
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-accent mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-blue-500 mr-2"></span>三倍
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G1R1VG08PDKTD7H901RK">
+                            <p class="font-medium">SMG-45冲锋枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G1R1VG08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-accent mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-yellow-500 mr-2"></span>丐版
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-yellow-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GPPB0O033LBB5GR8PG1C">
+                            <p class="font-medium">SMG-45冲锋枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GPPB0O033LBB5GR8PG1C</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 精准射手步枪 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300" id="dmr">
+            <div class="bg-secondary text-white p-4">
+                <h3 class="text-xl font-bold flex items-center">
+                    <i class="fa fa-eye mr-2"></i>精准射手步枪
+                </h3>
+            </div>
+            <div class="p-4 space-y-3">
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-secondary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-indigo-500 mr-2"></span>三/七倍
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-indigo-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G1R2EO08PDKTD7H901RK">
+                            <p class="font-medium">SR-25射手步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G1R2EO08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-indigo-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6H0P5NO08PDKTD7H901RK">
+                            <p class="font-medium">PSG-1射手步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6H0P5NO08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-secondary mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-blue-500 mr-2"></span>三倍
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-blue-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G1R2L408PDKTD7H901RK">
+                            <p class="font-medium">Mini-14射手步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G1R2L408PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 精准狙击步枪 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300" id="sniper">
+            <div class="bg-dark text-white p-4">
+                <h3 class="text-xl font-bold flex items-center">
+                    <i class="fa fa-long-arrow-right mr-2"></i>精准狙击步枪
+                </h3>
+            </div>
+            <div class="p-4 space-y-3">
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-dark mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-indigo-500 mr-2"></span>三/七倍
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-indigo-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G1R2QS08PDKTD7H901RK">
+                            <p class="font-medium">AWM狙击步枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G1R2QS08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 机枪 -->
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:-translate-y-1 transition-all duration-300">
+            <div class="bg-teal-500 text-white p-4">
+                <h3 class="text-xl font-bold flex items-center">
+                    <i class="fa fa-shield mr-2"></i>机枪
+                </h3>
+            </div>
+            <div class="p-4 space-y-3">
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-teal-500 mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-red-500 mr-2"></span>红点
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G24T0O08PDKTD7H901RK">
+                            <p class="font-medium">PKM通用机枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G24T0O08PDKTD7H901RK</p>
+                        </div>
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-red-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6G0KKBK08PDKTD7H901RK">
+                            <p class="font-medium">QJB201轻机枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6G0KKBK08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 rounded-lg p-3">
+                    <h4 class="font-semibold text-teal-500 mb-2 flex items-center">
+                        <span class="inline-block w-3 h-3 rounded-full bg-teal-500 mr-2"></span>火控
+                    </h4>
+                    <div class="space-y-2">
+                        <div class="gun-code bg-white rounded-md p-2 border-l-4 border-teal-500 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-code="6GQ3SRS08PDKTD7H901RK">
+                            <p class="font-medium">PKM通用机枪-烽火地带</p>
+                            <p class="text-sm text-gray-600 truncate">6GQ3SRS08PDKTD7H901RK</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- 页脚 -->
+<footer class="bg-dark text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <div class="flex items-center space-x-2">
+                    <i class="fa fa-crosshairs text-primary text-xl"></i>
+                    <h2 class="text-lg font-bold">来去都是自由风</h2>
+                </div>
+                <p class="text-gray-400 mt-2">不要被游戏所束缚</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa fa-github text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa fa-twitter text-xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fa fa-discord text-xl"></i>
+                </a>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
+            <p>&copy; 2025 三角洲枪械改装大全. 以上内容由怡容电子竞技俱乐部提供。</p>
+            <p>&copy;               中国公安部ICP备
+        </div>
+    </div>
+</footer>
+
+<!-- 复制提示弹窗 -->
+<div id="copy-toast" class="fixed top-20 left-1/2 transform -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 pointer-events-none transition-transform-opacity duration-300 z-50">
+    <i class="fa fa-check-circle mr-2"></i>
+    <span>您已复制该改枪码</span>
+</div>
+
+<script>
+    // 导航栏滚动效果
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('py-2', 'shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+            navbar.classList.remove('py-3', 'shadow-md', 'bg-white');
+        } else {
+            navbar.classList.add('py-3', 'shadow-md', 'bg-white');
+            navbar.classList.remove('py-2', 'shadow-lg', 'bg-white/95', 'backdrop-blur-sm');
+        }
+    });
+
+    // 移动端菜单切换
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+
+                // 关闭移动端菜单
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            }
+        });
+    });
+
+    // 复制改枪码功能
+    const gunCodes = document.querySelectorAll('.gun-code');
+    const copyToast = document.getElementById('copy-toast');
+
+    gunCodes.forEach(code => {
+        code.addEventListener('click', () => {
+            const codeValue = code.getAttribute('data-code');
+            navigator.clipboard.writeText(codeValue)
+                .then(() => {
+                    // 显示提示弹窗
+                    copyToast.classList.remove('opacity-0', '-translate-y-4');
+                    copyToast.classList.add('opacity-100', 'translate-y-0');
+
+                    // 0.5秒后隐藏弹窗
+                    setTimeout(() => {
+                        copyToast.classList.add('opacity-0', '-translate-y-4');
+                        copyToast.classList.remove('opacity-100', 'translate-y-0');
+                    }, 500);
+                })
+                .catch(err => {
+                    console.error('复制失败: ', err);
+                });
+        });
+    });
+
+    // 页面加载动画
+    document.addEventListener('DOMContentLoaded', () => {
+        // 为所有卡片添加进入动画
+        const cards = document.querySelectorAll('.bg-white.rounded-xl.shadow-lg');
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.add('opacity-100', 'translate-y-0');
+                card.classList.remove('opacity-0', 'translate-y-4');
+            }, 100 * index);
+        });
+    });
+</script>
+</body>
+</html>
